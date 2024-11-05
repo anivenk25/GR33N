@@ -6,68 +6,54 @@ from datetime import datetime, timedelta
 
 # Configuration
 commit_file = "lyrics_base64.txt"  # File to commit
-lyrics = """It's not a silly little moment
-It's not the storm before the calm
-This is the deep and dyin' breath of
-This love that we've been workin' on
-Can't seem to hold you like I want to
-So I can feel you in my arms
-Nobody's gonna come and save ya
-We pulled too many false alarms
-
-[Chorus]
-We're goin' down
-And you can see it too
-We're goin' down
-And you know that we're doomed
-My dear, we're slow dancin' in a burnin' room
-
-[Verse 2]
-I was the one you always dreamed of
-You were the one I tried to draw
-How dare you say it's nothin' to me?
-Baby, you're the only light I ever saw
-I'll make the most of all the sadness
-You'll be a bitch, because you can
-You'll try to hit me, just to hurt me
-So you leave me feelin' dirty
-'Cause you can't understand
-
-[Chorus]
-We're goin' down
-And you can see it, too
-We're goin' down
-And you know that we're doomed
-My dear, we're slow dancin' in a burnin' room
-
-[Bridge]
-Go cry about it, why don't you?
-Go cry about it, why don't you?
-Go cry about it, why don't you?
-
-[Chorus]
-My dear, we're slow dancin' in a burnin' room
-
-[Post-Chorus]
-Burnin' room
-Burnin' room
-Burnin' room
-Burnin' room
-
-[Outro]
-Don't you think we oughta know by now?
-Don't you think we shoulda learned somehow?
-Don't you think we oughta know by now?
-Don't you think we shoulda learned somehow?
-Don't you think we oughta know by now?
-Don't you think we shoulda learned somehow?
+lyrics = """When sky blue gets dark enough
+To see the colors of the city lights
+A trail of ruby red and diamond white
+Hits her like a sunrise
+She comes and goes and comes and goes
+Like no one can
+Tonight she's out to lose herself
+And find a high on Peachtree Street
+From mixed drinks to techno beats it's always
+Heavy into everything
+She comes and goes and comes and goes
+Like no one can
+She comes and goes and no one knows
+She's slipping through my hands
+She's always buzzing just like
+Neon, neon
+Neon, neon
+Who knows how long, how long, how long
+She can go before she burns away
+I can't be her angel now
+You know it's not my place to hold her down
+And it's hard for me to take a stand
+When I would take her anyway I can
+She comes and she goes
+Like no one can
+She comes and she goes
+She's slipping through my hands
+She's always buzzing just like
+Neon, neon
+Neon, neon
+Who knows how long, how long, how long
+She can go before she burns away, away
+She comes and she goes
+Like no one can
+She comes and she goes
+She's slipping through my hands
+She's always buzzing just like
+Neon, neon
+Neon, neon
+Who knows how long, how long, how long
+She can go before she burns away, away
 """
 
 # Encode lyrics to Base64
 encoded_lyrics = base64.b64encode(lyrics.encode('utf-8')).decode('utf-8')
 
 # Split encoded lyrics into chunks (for example, 50 characters at a time)
-chunk_size = 50
+chunk_size = 20
 chunks = [encoded_lyrics[i:i + chunk_size] for i in range(0, len(encoded_lyrics), chunk_size)]
 
 # Define the start and end date for the past year
@@ -101,4 +87,5 @@ for date in sorted(unique_dates):
 
 # Push to GitHub
 subprocess.run(["git", "push", "--force", "origin", "main"])
+
 
